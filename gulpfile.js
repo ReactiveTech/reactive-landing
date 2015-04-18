@@ -1,23 +1,23 @@
 'use strict';
 
-var gulp             = require('gulp'),
-	connect            = require('gulp-connect'),
-	stylus             = require('gulp-stylus'),
-	nib                = require('nib'),
-	jshint             = require('gulp-jshint'),
-	stylish            = require('jshint-stylish'),
-	inject             = require('gulp-inject'),
-	wiredep            = require('wiredep').stream,
-	imagemin           = require('gulp-imagemin'),
-	pngquant           = require('imagemin-pngquant'),
-	historyApiFallback = require('connect-history-api-fallback');
+var gulp               = require('gulp'),
+		connect            = require('gulp-connect'),
+		stylus             = require('gulp-stylus'),
+		nib                = require('nib'),
+		jshint             = require('gulp-jshint'),
+		stylish            = require('jshint-stylish'),
+		inject             = require('gulp-inject'),
+		wiredep            = require('wiredep').stream,
+		imagemin           = require('gulp-imagemin'),
+		pngquant           = require('imagemin-pngquant'),
+		historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('inject', function () {
-	var sources = gulp(['./app/scripts/**/*js', './app/stylesheets/**/*.css'])
+	var sources = gulp.src(['./app/scripts/**/*.js','./app/stylesheets/**/*.css']);
 	return gulp.src('index.html', {cwd: './app'})
 		.pipe(inject(sources, {
-			read: false, 
-			ignorepath: '/.app'
+			read: false,
+			ignorePath: '/app'
 		}))
 		.pipe(gulp.dest('./app'));
 });
