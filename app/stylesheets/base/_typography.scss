@@ -1,0 +1,14 @@
+$font-family-regular: "opensans-regular";
+$font-family-bold	: "opensans-bold";
+
+@each $font-face in $font-family-regular, $font-family-bold  {
+    @font-face {
+      font-family: $font-face; 
+      font-style: normal; 
+      font-weight: normal;
+      src: url('../fonts/#{$font-face}.eot');
+      src: url('../fonts/#{$font-face}.eot?') format('eot'),
+           url('../fonts/#{$font-face}.woff') format('woff'),
+           url('../fonts/#{$font-face}.ttf')  format('truetype');
+    }
+}
